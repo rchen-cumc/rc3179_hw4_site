@@ -19,5 +19,6 @@ Hi I'm Ray, welcome to my web site. I'm currently an NLM Postdoctoral Fellow pur
 
 ### Cat
 And here is a picture of my cat Snuffer!
+
 ![](snuffer.jpg){width=350px}
 
