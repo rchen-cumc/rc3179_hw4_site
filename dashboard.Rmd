@@ -21,8 +21,9 @@ data(rest_inspec)
 
 rest_inspec =
   rest_inspec %>%
-  filter(grade != 'Not Yet Graded', boro != "Missing") %>% 
-  mutate(boro = str_to_title(boro)) 
+  filter(grade != 'Not Yet Graded', boro != "Missing", !is.na(score)) %>% 
+  mutate(boro = str_to_title(boro)) %>% 
+  sample_n(10000)
 ```
 
 Column {data-width=650}
@@ -41,6 +42,24 @@ rest_inspec %>%
 Column {data-width=350}
 -----------------------------------------------------------------------
 
+### Inspection scores by grades
+```{r}
+rest_inspec %>% 
+  plot_ly(x = ~grade, y = ~score, type = "scatter", color = ~boro, mode = "markers")
+```
+
+### Inspection scores across boroughs
+
+```{r}
+rest_inspec %>% 
+  filter(!is.na(score)) %>% 
+  mutate(boro = as.factor(boro)) %>% 
+  mutate(borough = fct_reorder(boro, score)) %>% 
+  plot_ly(y = ~score, color = ~borough, type = "box", colors = "Set2")
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
 ### Top cuisine types in NYC
 
 ```{r}
@@ -48,13 +67,7 @@ rest_inspec %>%
   group_by(cuisine_description) %>% 
   summarize(rest_count = n()) %>% 
   mutate(cuisine_description = fct_reorder(cuisine_description, rest_count, .desc = TRUE)) %>% 
-  filter(rest_count > 500) %>% 
+  filter(rest_count > 50) %>% 
   plot_ly(x = ~cuisine_description, y = ~rest_count, type = "bar")
-```
-
-### Chart C
-
-```{r}
-
 ```
 

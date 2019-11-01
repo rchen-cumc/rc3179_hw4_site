@@ -1,12 +1,12 @@
 ---
-title: "My Academic/Professional Experience (aka my CV)"
+title: "Academic/Professional Experiences (aka CV)"
 output: 
   html_document:
     toc: true
     toc_float: true
 ---
 
-## EDUCATION AND TRAINING
+## Education and Training
 2018-present	Columbia University, New York, NY  
 NLM Postdoctoral Fellow, Department of Biomedical Informatics
 
@@ -19,20 +19,20 @@ Doctor of Medicine
 2005-2009	Duke University, Durham, NC  
 B.A. in Computer Science; Minors in Biology, Chemistry
 
-### ACADEMIC/PROFESSIONAL POSITIONS AND APPOINTMENTS
+### Academic/Professional Positions and Appointments
 2017-present	Weill Cornell College of Medicine/New York-Presbyterian Hospital, New York, NY  
 Clinical Assistant Professor/Attending Physician, Division of Hospital Medicine, Department of Medicine
 
 2017-2018	Columbia University Medical Center, New York, NY  
 Postdoctoral Research Scientist, Department of Biomedical Informatics
 
-### BOARD CERTIFICATION
+### Board Certification
 American Board of  Internal Medicine
 
-### MEDICAL LICENSURE
+### Medical Licensure
 New York #288983
 
-### AWARDS/HONORS
+### Awards/Honors
 2018-present	NIH/NLM T15 Training Grant—University-based Biomedical Informatics and Data Science Research Training Program
 2018	Distinguished Poster Award, AMIA 2018 Annual Symposium
 2016		UCSF Department of Medicine Tech Challenge Winner
@@ -41,10 +41,10 @@ New York #288983
 2012		Yale Entrepreneurial Institute Summer Fellowship Finalist- ASSESS Systems
 2011	American Pediatric Society/Society for Pediatric Research- Travel Award for PAS 2011
 
-### EDITORIAL BOARDS
+### Editorial Boards
 2012-2014	Circulation: Cardiovascular Quality and Outcomes (Section Editor)
 
-### PUBLICATIONS
+### Publications
 Suchard MA, Schuemie MJ, Krumholz HM, You SC, **Chen R**, Pratt N, Reich CG, Duke J, Madigan D, Hripcsak G, Ryan PB. Comprehensive comparative effectiveness and safety of first-line antihypertensive drug classes: a systematic, multinational, large-scale analysis. The Lancet. 2019.
 
 **Chen R**, Falconer T, Hripcsak G. Feasibility of Large-Scale Observational Cancer Research using the OHDSI Network White Paper. National Cancer Institute, 2018. 
@@ -81,7 +81,7 @@ Gupta A, Lampropulos JF, Bikdeli B, Mody P, **Chen R**, Kulkarni VT, Dharmarajan
 
 Lampropulos JF, Bikdeli B, Gupta A, Mody P, Kulkarni VT, **Chen R**, Dharmarajan K. Most important outcomes research papers on valvular heart disease. Circ Cardiovasc Qual Outcomes 2012;5:e95-e103.
 
-### PRESENTATIONS & POSTERS
+### Presentations and Posters
 Natarajan K, Jiang X, Kalluri K, Pang C, Lee J, Liu C, Chen R, Ryan P. A Collaborative Approach to Phenotype Development: Framing Concept Set Discovery as a Machine Learning Problem. 2019 OHDSI Symposium. North Bethesda, MD, 2019.
 
 Jiang X, Kalluri KS, Pang C, Chen K, Lee J, Liu C, Chen R, Ryan P, Natarajan K. Feature Engineering to Power Machine Learning Phenotype Development. 2019 OHDSI Symposium. North Bethesda, MD, 2019.
