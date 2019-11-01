@@ -39,6 +39,17 @@ rest_inspec %>%
   plot_ly(x = ~boro, y = ~n, color = ~grade, type = "bar")
 ```
 
+### Top cuisine types in NYC
+
+```{r}
+rest_inspec %>% 
+  group_by(cuisine_description) %>% 
+  summarize(rest_count = n()) %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, rest_count, .desc = TRUE)) %>% 
+  filter(rest_count > 50) %>% 
+  plot_ly(x = ~cuisine_description, y = ~rest_count, type = "bar")
+```
+
 Column {data-width=350}
 -----------------------------------------------------------------------
 
@@ -58,16 +69,4 @@ rest_inspec %>%
   plot_ly(y = ~score, color = ~borough, type = "box", colors = "Set2")
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
-### Top cuisine types in NYC
-
-```{r}
-rest_inspec %>% 
-  group_by(cuisine_description) %>% 
-  summarize(rest_count = n()) %>% 
-  mutate(cuisine_description = fct_reorder(cuisine_description, rest_count, .desc = TRUE)) %>% 
-  filter(rest_count > 50) %>% 
-  plot_ly(x = ~cuisine_description, y = ~rest_count, type = "bar")
-```
 
