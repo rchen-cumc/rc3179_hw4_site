@@ -1,5 +1,5 @@
 ---
-title: "My first dashboard"
+title: "NYC Restaurant Inspections Dashboard"
 output: 
   flexdashboard::flex_dashboard:
     orientation: columns
@@ -15,51 +15,46 @@ library(plotly)
 library(flexdashboard)
 
 ```
-```{r}
-set.seed(1)
 
-data(nyc_airbnb)
-nyc_airbnb = 
-  nyc_airbnb %>% 
-  mutate(rating = review_scores_location / 2) %>%
-  select(
-    neighbourhood_group, neighbourhood, rating, price, room_type, lat, long) %>%
-  filter(
-    !is.na(rating), 
-    neighbourhood_group == "Manhattan",
-    room_type == "Entire home/apt",
-    price %in% 100:500)  %>% 
-  sample_n(5000)
+```{r}
+data(rest_inspec)
+
+rest_inspec =
+  rest_inspec %>%
+  filter(grade != 'Not Yet Graded', boro != "Missing") %>% 
+  mutate(boro = str_to_title(boro)) 
 ```
 
 Column {data-width=650}
 -----------------------------------------------------------------------
 
-### Chart A
+### Restaurant Inspection Grades by Borough
 
 ```{r}
-nyc_airbnb %>% 
-  plot_ly(x = ~lat, y = ~long, type = "scatter", mode = "markers", color = ~price, alpha = 0.5) 
+rest_inspec %>% 
+  mutate(boro = as.factor(boro)) %>% 
+  group_by(boro, grade) %>% 
+  summarize(n = n()) %>% 
+  plot_ly(x = ~boro, y = ~n, color = ~grade, type = "bar")
 ```
 
 Column {data-width=350}
 -----------------------------------------------------------------------
 
-### Chart B
+### Top cuisine types in NYC
 
 ```{r}
-nyc_airbnb %>% 
-  mutate(neighbourhood = fct_reorder(neighbourhood, price)) %>% #order neighborhoods by price
-  plot_ly(y = ~price, color = ~neighbourhood, type = "box",
-          colors = "Set2")
+rest_inspec %>% 
+  group_by(cuisine_description) %>% 
+  summarize(rest_count = n()) %>% 
+  mutate(cuisine_description = fct_reorder(cuisine_description, rest_count, .desc = TRUE)) %>% 
+  filter(rest_count > 500) %>% 
+  plot_ly(x = ~cuisine_description, y = ~rest_count, type = "bar")
 ```
 
 ### Chart C
 
 ```{r}
-nyc_airbnb %>% 
-  count(neighbourhood) %>%  #n is implicitly the column name for the counts
-  mutate(neighbourhood = fct_reorder(neighbourhood, n)) %>% 
-  plot_ly(x = ~neighbourhood, y = ~n, color = ~neighbourhood, type = "bar")
+
 ```
 
