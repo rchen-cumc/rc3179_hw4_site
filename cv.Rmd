@@ -6,7 +6,7 @@ output:
     toc_float: true
 ---
 
-## Education and Training
+### Education and Training
 2018-present	Columbia University, New York, NY  
 NLM Postdoctoral Fellow, Department of Biomedical Informatics
 
